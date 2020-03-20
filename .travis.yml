@@ -1,15 +1,17 @@
 language: python
 arch: arm64
 env:
-  - NO_CUDA=1
-  - NO_DISTRIBUTED=1
-  - NO_MKLDNN=1
-  - BUILD_TEST=0
-  - MAX_JOBS=6
-  - USE_SYSTEM_NCCL=0
-  - USE_NCC=OFF
-  - VERBOSE=1
-  - USE_OPENMP=1
+  global:
+    - MAX_JOBS=2
+
+    - NO_CUDA=1
+    - NO_DISTRIBUTED=1
+    - NO_MKLDNN=1
+    - BUILD_TEST=0
+    - USE_SYSTEM_NCCL=0
+    - USE_NCC=OFF
+    - VERBOSE=1
+    - USE_OPENMP=1
 before_install:
   - sudo apt-get -y install python-numpy python-yaml python-cffi python-setuptools python-wheel cmake
   - git clone https://github.com/pytorch/pytorch --recursive
